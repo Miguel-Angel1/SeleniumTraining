@@ -25,47 +25,67 @@ public class Locators {
 
     @Test /// Durante cada prueba se ejecuta una prueba
     public void Test() throws InterruptedException {
-
-        /* Por id
-            WebElement demoSite = driver.findElement(By.id("site-name"));
-            demoSite.click();
-            Thread.sleep(2000);
-            */
-
-            /* Por Name
-            WebElement userName = driver.findElement(By.name("userName"));
-            userName.sendKeys("Miguel");
-            Thread.sleep(6000);*/
-
-            /* Por Clase
-            WebElement logo = driver.findElement(By.className("logo"));
-            logo.click();
-            Thread.sleep(6000);*/
-        /*
-        WebElement demoSite = driver.findElement(By.linkText("Demo Site"));
+//****Localizador por "ID"******
+        /*WebElement demoSite = driver.findElement(By.id("site-name"));
         demoSite.click();
-        Thread.sleep();*/
+        Thread.sleep(3000);*/
 
-        /*
-        WebElement demoSite = driver.findElement(By.partialLinkText("Demo"));
+        //*****Localizador por "name"*****
+        /*WebElement userName = driver.findElement(By.name("userName"));
+        userName.sendKeys("Automation23");
+        Thread.sleep(3000);*/
+
+        //*******Localizador por "ClassName"*******
+        /*WebElement logo = driver.findElement(By.className("logo"));
+        logo.click();
+        Thread.sleep(3000);*/
+
+        //*****Localizador por "Link Text"*******
+        /*WebElement demoSite = driver.findElement(By.linkText("Demo Site"));
         demoSite.click();
-        Thread.sleep(6000);
+        Thread.sleep(3000);*/
+
+        //******Localizador por "Partial Link Text"********
+        /*WebElement demoSite = driver.findElement(By.partialLinkText("Demo"));
+        demoSite.click();
+        Thread.sleep(3000);*/
+
+        //********Localizador por "cssSelector"*********
+        //WebElement userName = driver.findElement(By.cssSelector("input[name='userName']"));
+        //WebElement demoSite = driver.findElement(By.cssSelector("div#site-name"));
+        //WebElement demoSite = driver.findElement(By.cssSelector("#site-name"));
+        //demoSite.click();
+        //WebElement userName = driver.findElement(By.cssSelector("input[type='text'][name='userName']"));
+        //userName.sendKeys("Automation");
+        //Thread.sleep(3000);
+
+        //********* X P H A T S ********
+        //Existen dos tipos de xpaths; que son: absoluto y relativo
+        //El xphat absoluto por buenas practicas NO se debe utilizar o bien no abusar de el
+        //Diferencias
+        //El xphat absoluto es toda la ruta del elemento, es decir la ubicacion del mismo y su sintaxis inicia con una diagonal
+
+        //******* Xphat Absoluto
+        /*WebElement userName = driver.findElement(By.xpath("/html/body/div[2]/table/tbody/tr/td[2]/table/tbody/tr[4]/td/table/tbody/tr/td[2]/table/tbody/tr[2]/td[3]/form/table/tbody/tr[4]/td/table/tbody/tr[2]/td[2]/input"));
+        userName.sendKeys("Locura");
         */
 
-        /* Por cssLocatro
-        WebElement userName = driver.findElement(By.cssSelector("input[name='userName']"));
-        WebElement userName1 = driver.findElement(By.cssSelector("div#site-name"));
-        WebElement userName2 = driver.findElement(By.cssSelector("#site-name"));
+        //*****Xpath Relativo ************
+        //El uso de xpath relativo inician con doble // (diagonal)
+        // El uso de xpath relativo se realiza por medio de los tags y atributos, entiendase que tags, son: span, img, button, input, etc...
 
-        WebElement userName = driver.findElement(By.cssSelector("input[type='Text'][name='userName']"));
-        */
-        //**************************XPATh********************
-        //Existen tipos de xpaths: absolutas y relativo
-        //El xpath absoluto es toda la ruta del elemenyo, es decir la ubicacion del mismo, solo usarlo cuando algo bno cambiara
+        //1. Un atributo
+        /*WebElement userName = driver.findElement(By.xpath("//input[@name='userName']"));
+        userName.sendKeys("REGISTRO");*/
 
-        
+        //2. Dos atributos
+        /*WebElement demoSite = driver.findElement(By.xpath("//a[@title='Home' and @style='font-size:32px;']"));
+        demoSite.click();*/
 
-
+        //3. Uso de xpath usando contains, con: "*" o "tag", cabe mencionar que se puede utilizar uno u otro
+        WebElement demoSite = driver.findElement(By.xpath("//*[contains(text(), 'Demo Site')]"));
+        demoSite.click();
+        Thread.sleep(3000);
 
 
     }
