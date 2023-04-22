@@ -3,6 +3,8 @@ package Selenium_Basic;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.AfterTest;
@@ -14,8 +16,9 @@ public class DoublrClick {
 
         @BeforeTest
         public void Setup() throws InterruptedException {
-            //System.setProperty("webdriver.chrome.driver", "src/main/resources/Drivers/chromedriver.exe");
-            driver = new FirefoxDriver();
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("--remote-allow-origins=*");
+            driver = new ChromeDriver(options);
             driver.manage().window().maximize();
             driver.get("https://www.selenium.dev/selenium/web/mouse_interaction.html");
             Thread.sleep(3000);
